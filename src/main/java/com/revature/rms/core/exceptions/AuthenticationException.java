@@ -6,10 +6,14 @@ abstract class AuthenticationException extends ExceptionHandler{
     private String message;
 
     public AuthenticationException() {
-        super(401, "Authentication failed...");
+        super(401, "An authentication error occurred.");
     }
 
     public AuthenticationException(String message) {
         super(401, message);
+    }
+
+    public AuthenticationException(int status, String message) {
+        super(status, message);
     }
 }
