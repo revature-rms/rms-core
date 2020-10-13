@@ -1,5 +1,7 @@
 package com.revature.rms.core.metadata;
 
+import java.util.Objects;
+
 abstract class ResourceMetaData {
 
     //Fields
@@ -51,5 +53,23 @@ abstract class ResourceMetaData {
                 ", lastModifiedDateTime='" + lastModifiedDateTime + '\'' +
                 ", resourceOwner=" + resourceOwner +
                 ", currentlyActive=" + currentlyActive;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ResourceMetaData that = (ResourceMetaData) o;
+        return resourceCreator == that.resourceCreator &&
+                lastModifier == that.lastModifier &&
+                resourceOwner == that.resourceOwner &&
+                currentlyActive == that.currentlyActive &&
+                Objects.equals(resourceCreationDateTime, that.resourceCreationDateTime) &&
+                Objects.equals(lastModifiedDateTime, that.lastModifiedDateTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(resourceCreator, resourceCreationDateTime, lastModifier, lastModifiedDateTime, resourceOwner, currentlyActive);
     }
 }
