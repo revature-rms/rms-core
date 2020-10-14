@@ -8,7 +8,11 @@ public abstract class Resource {
 
     private ResourceMetaData resourceMetaData;
 
-    Resource(int id, ResourceMetaData resourceMetaData) {
+    public Resource() {
+        super();
+    }
+
+    public Resource(int id, ResourceMetaData resourceMetaData) {
         this.id = id;
         this.resourceMetaData = resourceMetaData;
     }
