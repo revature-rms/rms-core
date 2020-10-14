@@ -1,21 +1,31 @@
 package com.revature.rms.core.metadata;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
+import javax.persistence.*;
 
+@Embeddable
 public class ResourceMetadata {
 
     //Fields
+
+    @Column(nullable=false)
     private int resourceCreator;
 
-    private String resourceCreationDateTime;
+    @Column(nullable=false)
+    private String resourceCreationDateTime = LocalDateTime.now().toString();
 
+    @Column(nullable=false)
     private int lastModifier;
 
-    private String lastModifiedDateTime;
+    @Column(nullable=false)
+    private String lastModifiedDateTime = LocalDateTime.now().toString();
 
+    @Column(nullable=false)
     private int resourceOwner;
 
-    private boolean currentlyActive;
+    @Column
+    private boolean currentlyActive = true;
 
     public ResourceMetadata() {
     }

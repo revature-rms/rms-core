@@ -1,5 +1,6 @@
 package com.revature.rms.core.metadata;
 
+import javax.persistence.*;
 import java.util.Objects;
 
 public abstract class Resource {
