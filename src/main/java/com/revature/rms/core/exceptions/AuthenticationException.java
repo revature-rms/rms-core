@@ -1,19 +1,8 @@
 package com.revature.rms.core.exceptions;
 
-abstract class AuthenticationException extends ExceptionHandler{
+public class AuthenticationException extends RuntimeException {
 
-    private int status;
-    private String message;
+    public AuthenticationException(){ super("Authentication Failed!");}
 
-    public AuthenticationException() {
-        super(401, "An authentication error occurred.");
-    }
-
-    public AuthenticationException(String message) {
-        super(401, message);
-    }
-
-    public AuthenticationException(int status, String message) {
-        super(status, message);
-    }
+    public AuthenticationException(String message){super(message);}
 }

@@ -1,19 +1,8 @@
 package com.revature.rms.core.exceptions;
 
-abstract class ResourcePersistenceException extends ExceptionHandler{
+public class ResourcePersistenceException extends RuntimeException {
 
-    private int status;
-    private String message;
+    public ResourcePersistenceException(){ super("Resource failed to persist");}
 
-    public ResourcePersistenceException() {
-        super(409, "Resource did not persist.");
-    }
-
-    public ResourcePersistenceException(String message) {
-        super(409, message);
-    }
-
-    public ResourcePersistenceException(int status, String message) {
-        super(status, message);
-    }
+    public ResourcePersistenceException(String message){ super(message);}
 }

@@ -1,19 +1,8 @@
 package com.revature.rms.core.exceptions;
 
-abstract class AuthorizationException extends ExceptionHandler{
+public class AuthorizationException extends RuntimeException {
 
-    private int status;
-    private String message;
+    public AuthorizationException(){ super("You are not Authorized to access this");}
 
-    public AuthorizationException() {
-        super(403, "An authorization exception occurred.");
-    }
-
-    public AuthorizationException(String message) {
-        super(403, message);
-    }
-
-    public AuthorizationException(int status, String message) {
-        super(status, message);
-    }
+    public AuthorizationException(String message){ super(message);}
 }
