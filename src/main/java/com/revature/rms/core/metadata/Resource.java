@@ -6,24 +6,32 @@ public abstract class Resource {
 
     private int id;
 
-    private ResourceMetaData resourceMetaData;
+    private ResourceMetadata resourceMetadata;
 
     public Resource() {
         super();
     }
 
-    public Resource(int id, ResourceMetaData resourceMetaData) {
+    public Resource(int id, ResourceMetadata resourceMetadata) {
         this.id = id;
-        this.resourceMetaData = resourceMetaData;
+        this.resourceMetadata = resourceMetadata;
     }
 
-    public abstract int getId();
+    public int getId(){
+        return id;
+    }
 
-    public abstract void setId(int id);
+    public void setId(int id){
+        this.id = id;
+    }
 
-    public abstract ResourceMetaData getResourceMetaData();
+    public ResourceMetadata getResourceMetadata(){
+        return resourceMetadata;
+    }
 
-    public abstract void setResourceMetaData(ResourceMetaData resourceMetaData);
+    public void setResourceMetadata(ResourceMetadata resourceMetadata){
+        this.resourceMetadata = resourceMetadata;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -31,19 +39,19 @@ public abstract class Resource {
         if (o == null || getClass() != o.getClass()) return false;
         Resource resource = (Resource) o;
         return id == resource.id &&
-                Objects.equals(resourceMetaData, resource.resourceMetaData);
+                Objects.equals(resourceMetadata, resource.resourceMetadata);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, resourceMetaData);
+        return Objects.hash(id, resourceMetadata);
     }
 
     @Override
     public String toString() {
         return "Resource{" +
                 "id=" + id +
-                ", resourceMetaData=" + resourceMetaData +
+                ", resourceMetaData=" + resourceMetadata +
                 '}';
     }
 }
