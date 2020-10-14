@@ -2,13 +2,17 @@ package com.revature.rms.core.metadata;
 
 import java.util.Objects;
 
-abstract class Resource {
+public abstract class Resource {
 
     private int id;
 
     private ResourceMetaData resourceMetaData;
 
-    Resource(int id, ResourceMetaData resourceMetaData) {
+    public Resource() {
+        super();
+    }
+
+    public Resource(int id, ResourceMetaData resourceMetaData) {
         this.id = id;
         this.resourceMetaData = resourceMetaData;
     }
