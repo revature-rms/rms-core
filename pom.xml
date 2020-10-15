@@ -42,4 +42,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>RMS Core</name>
+            <url>https://maven.pkg.github.com/revature-rms/rms-core</url>
+        </repository>
+    </distributionManagement>
 </project>
