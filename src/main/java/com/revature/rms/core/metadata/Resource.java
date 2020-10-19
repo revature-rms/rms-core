@@ -3,6 +3,7 @@ package com.revature.rms.core.metadata;
 import javax.persistence.*;
 import java.util.Objects;
 
+@MappedSuperclass
 public abstract class Resource {
 
     @Id
