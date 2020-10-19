@@ -5,9 +5,13 @@ import java.util.Objects;
 
 public abstract class Resource {
 
-    private int id;
+    @Id
+    @Column
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    protected int id;
 
-    private ResourceMetadata resourceMetadata;
+    @Embedded
+    protected ResourceMetadata resourceMetadata;
 
     public Resource() {
         super();
