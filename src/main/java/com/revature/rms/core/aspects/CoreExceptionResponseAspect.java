@@ -2,12 +2,10 @@ package com.revature.rms.core.aspects;
 
 
 import com.revature.rms.core.exceptions.*;
-import dto.ErrorResponse;
+import com.revature.rms.core.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 
 public abstract class CoreExceptionResponseAspect {
