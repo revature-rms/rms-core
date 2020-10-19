@@ -1,4 +1,4 @@
-package dto;
+package com.revature.rms.core.dto;
 
 import java.time.LocalDateTime;
 
