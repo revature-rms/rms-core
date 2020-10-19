@@ -20,10 +20,10 @@ public class EurekaInstanceConfigBeanPostProcessor implements BeanPostProcessor 
     private String fargateIp;
 
     @Value("${spring.application.name}")
-    private String serviceName; // employee-service
+    private String serviceName;
 
     @Value("${server.port}")
-    private int port; // 10002
+    private int port;
 
     {
         try {
