@@ -1,15 +1,21 @@
 package com.revature.rms.core.aspects;
 
+import com.revature.rms.core.config.EurekaInstanceConfigBeanPostProcessor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
 public abstract class CoreLoggingAspect {
+
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(CoreLoggingAspect.class);
 
 	@Pointcut("within(com.revature..*)")
 	public abstract void logAll();
@@ -18,21 +24,21 @@ public abstract class CoreLoggingAspect {
 	public void logMethodStart(JoinPoint jp){
 		String methodSig = extractMethodSignature(jp);
 		String argStr = Arrays.toString(jp.getArgs());
-		System.out.println(methodSig + " invoked at " + LocalDateTime.now());
-		System.out.println("Input Arguments: " + argStr);
+		LOGGER.info(methodSig + " invoked at " + LocalDateTime.now());
+		LOGGER.info("Input Arguments: " + argStr);
 	}
 
 	@AfterReturning(pointcut = "logAll()", returning = "returned")
 	public void logMethodReturn(JoinPoint jp, Object returned){
 		String methodSig = extractMethodSignature(jp);
-		System.out.println(methodSig + " successfully returned at " + LocalDateTime.now());
-		System.out.println("Object returned: " + returned);
+		LOGGER.info(methodSig + " successfully returned at " + LocalDateTime.now());
+		LOGGER.info("Object returned: " + returned);
 	}
 
 	@AfterThrowing(pointcut = "logAll()", throwing = "e")
 	public void errorOccurrence(JoinPoint jp, Exception e){
 		String methodSig = extractMethodSignature(jp);
-		System.out.println(e + "was thrown in method " + methodSig + " at " + LocalDateTime.now());
+		LOGGER.info(e + "was thrown in method " + methodSig + " at " + LocalDateTime.now());
 	}
 
 	public String extractMethodSignature(JoinPoint jp){
