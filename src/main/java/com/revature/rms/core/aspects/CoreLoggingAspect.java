@@ -38,7 +38,7 @@ public abstract class CoreLoggingAspect {
 	@AfterThrowing(pointcut = "logAll()", throwing = "e")
 	public void errorOccurrence(JoinPoint jp, Exception e){
 		String methodSig = extractMethodSignature(jp);
-		LOGGER.info(e + "was thrown in method " + methodSig + " at " + LocalDateTime.now());
+		LOGGER.error(e + "was thrown in method " + methodSig + " at " + LocalDateTime.now(), e);
 	}
 
 	public String extractMethodSignature(JoinPoint jp){
